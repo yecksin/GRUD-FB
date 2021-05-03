@@ -38,3 +38,22 @@
 
 # Probar con postman
 - cuando uses postman, fijate en los headers, para mandar json *key: Content-type  = value: aplication/json*
+
+
+# Conectar con mongo db
+## instalar mongo
+- googlear nestjs mongodb
+- para que salga la url: https://docs.nestjs.com/techniques/mongodb
+
+- $ npm install --save @nestjs/mongoose mongoose
+- se agregan modulo *mongose es como un orm*
+
+
+## configurarmongo
+- en el app module
+import { MongooseModule } from '@nestjs/mongoose';
+- imports
+MongooseModule.forRoot('mongodb://localhost/products-nest')
+- lo ultimo es el nombre del bd, nada de puertos
+
+- $ db.getMongo() *para saber el puerto que está al final*
