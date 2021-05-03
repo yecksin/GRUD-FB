@@ -22,7 +22,7 @@
 *en main ts podemos cambiar el puerto*
 
 
-# Terminos (¿como re entender lo olvidado? lee esto)
+# Controlladores
 
 - Los *controladores* son las *rutas* o los enpoints, les pones nombres y llamas al servicio para ejecutar el codigo o peticion a la bd
   Puedes tomar referencias sin problemas de un archivo .controller para copiar los datos y entender la dinamica
@@ -30,7 +30,7 @@
   los parametros:
   *@Res() resp* Es la respuesta del servidor
   *@Body() createProductDTO* son los datos que manda el cliente, pero se debe crear un DTO en la carpta dto para poder decir que datos llegan, es una clase
-  
+  *DTO* se crea contenido en la carpta dto *ver ejemplo*
    *(Para mas info mira el controller, tiene comentarios)*
 
 -
@@ -60,7 +60,7 @@ MongooseModule.forRoot('mongodb://localhost/products-nest')
 
 # crear schemas
 - esto es para restringir o ajusta variables que se van a guardar el md, se poneobligatrios, auto generado, etc
-- se crea el schema en la carpeta schemas *ahí hay un ejemplo*
+- se crea contenido del schema en la carpeta schemas *ahí hay un ejemplo*
 - $ npm install @types/mongoose -D  *para ayudas con ts*
 importamos el schema
 - En el *modulo que se esta trabajando, no app module* se debe crear el import array
@@ -73,3 +73,13 @@ importamos el schema
       
     ])
   ], 
+
+# servicios
+
+- se crea contenido del interface en la carpeta interfaces *ahí hay un ejemplo*
+- En el constructor del servicio
+
+constructor(@InjectModel('Product') private readonly productModel: Model<Product>)
+*@InjectModel('Product')* se inserta el shcemaa
+*productModel* Es la conexion de mongo dbpara hacer consutlas
+*productModel: Model<Product>* se basa en el tipo de dato product // si la interface gener errro ahi enproduct mira los comentarios en el archivo de interface
