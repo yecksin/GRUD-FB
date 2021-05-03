@@ -57,3 +57,19 @@ MongooseModule.forRoot('mongodb://localhost/products-nest')
 - lo ultimo es el nombre del bd, nada de puertos
 
 - $ db.getMongo() *para saber el puerto que está al final*
+
+# crear schemas
+- esto es para restringir o ajusta variables que se van a guardar el md, se poneobligatrios, auto generado, etc
+- se crea el schema en la carpeta schemas *ahí hay un ejemplo*
+- $ npm install @types/mongoose -D  *para ayudas con ts*
+importamos el schema
+- En el *modulo que se esta trabajando, no app module* se debe crear el import array
+  imports:[
+    MongooseModule.forFeature([
+      {
+        name: 'Product',
+        schema: ProductSchema
+      }
+      
+    ])
+  ], 
